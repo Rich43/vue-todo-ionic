@@ -18,8 +18,7 @@ export default defineComponent({
   components: {
     IonApp,
     Home,
-    // IonList,
-    // IonListHeader,
+
   },
   setup() {
     return {

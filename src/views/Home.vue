@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../../public/assets/icon/icon.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <TodoList v-bind:items="items" />
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+  import { Options, Vue } from 'vue-class-component';
+  import TodoList from '@/components/TodoList.vue';
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
+  @Options({
+    data: {
+      items: [{id: 0, value: 'test'}, {id: 1, value: 'foo'}]
+    },
+    components: {
+      TodoList,
+    },
+  })
+  export default class Home extends Vue {}
 </script>
