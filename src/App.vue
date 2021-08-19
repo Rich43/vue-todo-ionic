@@ -5,11 +5,7 @@
 </template>
 
 <script lang="ts">
-import {
-  IonApp,
-  // IonList,
-  // IonListHeader,
-} from '@ionic/vue';
+import {IonApp,} from '@ionic/vue';
 import {defineComponent} from 'vue';
 import Home from "@/views/Home.vue";
 

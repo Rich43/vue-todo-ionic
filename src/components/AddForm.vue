@@ -10,7 +10,7 @@
         </ion-col>
         <ion-col style="flex-grow: 0;" class="no-right-margin-padding">
           <ion-item class="submit-button no-right-margin-padding">
-            <ion-button type="submit" @click="$emit('todoSubmit', todoText)">Add todo item</ion-button>
+            <ion-button type="submit" @click="$emit('todoSubmit', todoText); todoText = '';">Add todo item</ion-button>
           </ion-item>
         </ion-col>
         <ion-col>

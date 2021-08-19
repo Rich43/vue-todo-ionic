@@ -31,7 +31,7 @@ export default defineComponent({
       },
       todoSubmit(event: any) {
         const lastTodo = this.todoItems.slice().reverse()[0];
-        this.todoItems.push({id: lastTodo.id + 1, value: event, checked: lastTodo.checked});
+        this.todoItems.push({id: lastTodo.id + 1, value: event, checked: false});
       }
     },
     setup() {
