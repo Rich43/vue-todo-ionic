@@ -8,13 +8,15 @@
             <ion-input v-model="todoText" type="text" id="todoText"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col>
-          <ion-item class="submit-button">
+        <ion-col style="flex-grow: 0;" class="no-right-margin-padding">
+          <ion-item class="submit-button no-right-margin-padding">
             <ion-button type="submit" @click="$emit('todoSubmit', todoText)">Add todo item</ion-button>
           </ion-item>
         </ion-col>
         <ion-col>
-          <ion-button @click="$emit('todoDelete')"><ion-icon style="color:black;" slot="icon-only" icon="trash" /></ion-button>
+          <ion-button @click="$emit('todoDelete')">
+            <ion-icon style="color:black;" slot="icon-only" icon="trash"/>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -55,18 +57,23 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.base {
+.base, .form-horizontal, .form-field {
   display: flex;
   align-items: center;
+}
 
-  .form-horizontal {
-    flex-direction: row;
-  }
+.form-horizontal {
+  flex-direction: row;
+}
 
-  .form-field {
-    flex-direction: column;
-    padding-right: 16px;
-  }
+.form-field {
+  flex-direction: column;
+  padding-right: 16px;
+}
+
+ion-item.no-right-margin-padding, ion-col.no-right-margin-padding {
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .submit-button {
