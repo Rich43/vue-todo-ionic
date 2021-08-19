@@ -1,22 +1,33 @@
 <template>
   <form class="form-horizontal" v-on:submit.prevent>
-    <ion-item class="form-field">
-      <ion-label position="floating">Todo text</ion-label>
-      <ion-input v-model="todoText" type="text" id="todoText"></ion-input>
-    </ion-item>
-    <ion-item class="submit-button">
-      <ion-button type="submit" @click="$emit('todoSubmit', todoText)">Add todo item</ion-button>
-    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item class="form-field">
+            <ion-label position="floating">Todo text</ion-label>
+            <ion-input v-model="todoText" type="text" id="todoText"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="submit-button">
+            <ion-button type="submit" @click="$emit('todoSubmit', todoText)">Add todo item</ion-button>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-button @click="$emit('todoDelete')"><ion-icon style="color:black;" slot="icon-only" icon="trash" /></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
-  <ion-button @click="$emit('todoDelete')"><ion-icon style="color:black;" slot="icon-only" icon="trash" /></ion-button>
+
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
 import {TodoItems} from "@/interfaces";
-import {IonButton, IonInput, IonItem, IonLabel} from "@ionic/vue";
-import { addIcons } from 'ionicons';
-import { trash } from 'ionicons/icons';
+import {IonButton, IonCol, IonGrid, IonInput, IonItem, IonLabel, IonRow} from "@ionic/vue";
+import {addIcons} from 'ionicons';
+import {trash} from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AddForm',
@@ -28,6 +39,9 @@ export default defineComponent({
     IonLabel,
     IonInput,
     IonButton,
+    IonGrid,
+    IonRow,
+    IonCol,
   },
   props: {
     items: Array as PropType<Array<TodoItems>>,
